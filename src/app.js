@@ -22,7 +22,7 @@ app.put("/updateDone/:id",async (req,res)=>{
     existingTodo.done = true;
     await existingTodo.save();
     res.send({message:"todo done"});
-})
+});
 
 
 app.get("/todo",async (req,res)=>{
