@@ -1,12 +1,15 @@
 const express  = require("express");
 const app = express();
 //const bodyparser = require("body-parser");
-const port = 9990;
+const port = process.env.PORT;
 app.use(express.json());
 const {todoModel} = require("./schema");
 
 const cors = require("cors");
-app.use(cors());
+app.use(cors({
+    credentials:true,
+    origin: ""
+}));
 
 app.post("/createTodo",async (req,res)=>{
     const data = req.body;
